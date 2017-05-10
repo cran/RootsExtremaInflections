@@ -1,1 +1,5 @@
 exportPattern("^[[:alpha:]]+")
+import("parallel","doParallel","iterators","foreach")
+importFrom("graphics", "abline", "axis", "box", "legend", "lines","par", "plot", "title")
+importFrom("stats", "as.formula", "confint", "lm", "predict")
+importFrom("grDevices", "dev.off", "pdf")

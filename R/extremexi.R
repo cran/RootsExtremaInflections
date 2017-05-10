@@ -1,42 +1,75 @@
 extremexi <-
-function(x,y,i1,i2,nt,alpha,xlb,ylb,xnd,ynd){
+  function(x,y,i1,i2,nt,alpha=5,xlb="x",ylb="y",xnd=3,ynd=3,plots=TRUE,plotpdf=FALSE,doparallel=FALSE){
   #Find extreme of discrete data (xi,yi) with Taylor regression and degree of polynomial nt
-  #Choose the desired range i1,i2 of data in order tosearch at interval [x_i1,x_i2] 
+  #Choose the desired range i1,i2 of data in order to search at interval [x_i1,x_i2] 
   #Choose the level of statistical significance as a number, ie 5 means 5%
   #Plot results with xlb=label for x-axis, ylb=label for y-axis
-  #Set number of digits for x-axis -->xnd and for y-axis-->ynd
-  #final version
+  #Set number of digits for x-axis (xnd) and for y-axis (ynd)
+  #Check for proper polynomial degree nt:
+  #Check for nt negative or less than one:
+  if(nt<0 | nt<1){stop('The argument "nt" must be nt >= 1')}
+  #Check for nt non integer:
+  if(nt-round(nt)!=0.0){warning('The argument "nt" must be integer, now it will be rounded to closest integer');nt=round(nt)}
+  #Check for sufficient number of xy-points:
+  if(length(i1:i2)<(nt+2)){stop('Number of xy-points is not sufficient for regression. Try decreasing nt...')}
   #Initialize:
-  am<-0;lev=(100-alpha)/100;
-  xm<-cbind();df<-NULL;
+  lev=(100-alpha)/100;
   x1<-x[i1:i2];y1<-y[i1:i2];
-  vn<-rep(0,i2-i1);vdn<-rep(0,i2-i1);v0n<-rep(0,i2-i1);vpr<-rep(0,i2-i1);ii<-0;l2<-rep(0,i2-i1);
-  aml<-list();amel<-list();yl<-list();
-  #Search for all available extreme-points p=x_i
-  for (i in (i1:i2)){
-    ii<-ii+1;
-    pr1<-x1[ii];vpr[ii]<-pr1;
+  #Function to search for all available extreme-points p=x_i
+  i=NULL;
+  #
+  fs=function(i,x1,y1){
+    pr1<-x1[i];
     xm<-cbind();df<-NULL;
-    for (i in (1:nt)){xm<-cbind(xm,cbind((x1-pr1)^i))}
+    for (j in (1:nt)){xm<-cbind(xm,cbind((x1-pr1)^j))}
     df<-as.data.frame(xm,row.names = NULL, optional = FALSE)
     xnam <- paste0("V", 1:(nt+0))
     fmla <- as.formula(paste("y1 ~ ", paste(xnam, collapse= "+")))
     c1<-lm(fmla,data=df);
-    yf1<-predict(c1);yl<-list(yl,yf1);
+    yp1<-predict(c1);
     ci1<-confint(c1,level = lev);
     am<-matrix(ci1,ncol=2,dimnames=list(c(paste0("a",0:nt)),c(colnames(ci1))));
-    aml<-list(aml,am);
-    v0n[ii]=abs(c1$coeff[2]);
+    v0n=as.double(abs(c1$coeff[2]))
+    points=cbind(v0n,pr1)
+    names(points)=c("a1","x0")
+    out=list(c(v0n,pr1),yp1,am)
+    names(out)=c("points","predicted","confint")
+    return(out)
+  }  
+  #
+  #Do parallel computing on request only:
+  #
+  if(doparallel){
+    ncores=detectCores();
+    cat(paste0('Available workers are ',ncores),'\n')
+    #
+    t1=Sys.time();
+    cl <- makeCluster(ncores);
+    registerDoParallel(cl)
+    m3=foreach(i=1:length(i1:i2)) %dopar% {fs(i,x1,y1)};
+    stopCluster(cl)
+    t2=Sys.time();print(as.POSIXlt(t2, "GMT")-as.POSIXlt(t1, "GMT"),quote=F);#Time difference of 13.20788 secs #It worked!
+    #
+  }else{
+    m3=lapply(1:length(i1:i2),fs,x1=x1,y1=y1)
   }
-  mans<-matrix(cbind(v0n,vpr),ncol=2,dimnames=list(c(),c("|a_1|","point")));
-  rownames(mans) <- rownames(mans, do.NULL = FALSE, prefix = "#")
-  #Find minimum value |a_1| and corresponding extreme x_i=p
-  n0<-which(v0n == min(v0n));
-  ipc<-mans[which.min(v0n),2];#print(n2);print(x1[n2]);
-  ys<-matrix(unlist(yl),ncol=length(x1));
+  #
+  #Process results...
+  mans=as.data.frame(do.call(rbind,sapply(m3,function(x){x[1]})))
+  colnames(mans)=c("a1","x0")
+  rownames(mans)=1:dim(mans)[1]
+  #Find minimum value |a_1| and corresponding root x_i=p
+  n0<-which.min(mans$a1);
+  ipc<-mans[n0,"x0"];
+  ys=as.data.frame(do.call(cbind,sapply(m3,function(x){x[2]})))
   yf1<-ys[,n0];
+  v0n=mans$a1
+  vpr=mans$x0
+  #
   ################
-  #Plot results
+  #Plot results if plots
+  if(plots){
+  if(plotpdf){pdf('extremeplot.pdf')}
   par(mfrow=c(1,2))
   ymin<-min(y1);
   ymax<-max(y1);
@@ -67,11 +100,14 @@ function(x,y,i1,i2,nt,alpha,xlb,ylb,xnd,ynd){
   legend('top',col=c('blue'),pch=c(19),legend=c(expression(paste('|',alpha[1],'|'))),bty='n',cex=0.6);
   title(main=expression(paste('Plot of all available |',alpha[1],'|')),cex.main=0.7)  
   box() 
-  n0k<-2*seq(1,nt/2);
-  amf<-matrix(matrix(unlist(aml),nrow=nt+1)[,(2*n0-1):(2*n0)],ncol=2);
+  if(plotpdf){dev.off()}
   par(mfrow=c(1,1))
+  }
+  if(plotpdf){cat("File 'extremeplot.pdf' has been created","\n");dev.off()}
+  #Return output...
+  amf=m3[[n0]]$confint;amf
   ans<-new.env();
-  ans$an<-matrix(cbind(amf,0.5*rowSums(amf)),nrow=nt+1,ncol=3,byrow=F,list(c(paste0("a",c(0:nt))),c(colnames(ci1),"an")));
+  ans$an<-matrix(cbind(amf,0.5*rowSums(amf)),nrow=nt+1,ncol=3,byrow=F,list(c(paste0("a",c(0:nt))),c(colnames(amf),"an")));
   ans$fextr<-c(n0,vpr[n0]);
-  ans;
+  return(ans)
 }

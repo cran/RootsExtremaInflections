@@ -61,7 +61,7 @@ It returns an environment with two components:
   \item{fextr}{a list with 2 members: the position i and the value of the estimated extreme point \eqn{\rho=x_{i}}{\rho=x_i}}
 }
 \references{
-Demetris T. Christopoulos (2014), Roots, extrema and inflection points by using a proper Taylor regression procedure, \emph{ResearchGate publications}, \url{https://www.researchgate.net/publication/261562841}
+Demetris T. Christopoulos (2014). Roots, extrema and inflection points by using a proper Taylor regression procedure. \emph{SSRN}. \url{https://dx.doi.org/10.2139/ssrn.2521403}
 }
 \author{
 Demetris T. Christopoulos

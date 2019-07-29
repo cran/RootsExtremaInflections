@@ -11,16 +11,17 @@ The computation of extrema and inflection points for a smooth \eqn{f}{f} is mere
 In a few words, the method is referencing to the well known Taylor polynomial of a smooth function \eqn{f}{f} around a point \eqn{\rho},
 \deqn{f \left( x \right)=a_0+a_1\,\left( x-\rho \right)+a_2\,\left( x-\rho \right)^2+a_3\,\left( x-\rho \right)^3+\ldots+a_n\,\left( x-\rho \right)^n}{f(x) = a_0+a_1( x-\rho)+a_2( x-\rho)^2+...+a_n( x-\rho)^n}
 When the coefficients \eqn{a_{0},a_{1},a_{2}}{a_0,a_1,a_2}, as computed using a polynomial regression, have minimum absolute value, then the corresponding points \eqn{\rho} are the estimations of the \emph{root}, \emph{extreme} or \emph{inflection point}, respectively. Essentially \emph{Taylor Regression (TR)} is \emph{polynomial regression for Taylor polynomial}.
-For a more rigorous definition of the terms \emph{TR}, \emph{TRE} method, further discussion and numerical examples, see \cite{Christopoulos (2014)}.   
+For a more rigorous definition of the terms \emph{TR}, \emph{TRE} method, further discussion and numerical examples, see \cite{Christopoulos (2014)}. \cr
+From version 1.2.1 a set of new methods has been added: \cr
+   Tulip Extreme Finding Estimator (TEFE) \cr
+   Bell Extreme Finding Estimator (BEFE) \cr
+   Integration Extreme Finding Estimator (IEFE) \cr
+   Integration Root Finding Estimator (IRFE) \cr
+All these methods are defined and explained at \cite{Christopoulos (2019)}.     
 }
 \details{
-\tabular{ll}{
-Package: \tab RootsExtremaInflections\cr
-Type: \tab Package\cr
-Version: \tab 1.1\cr
-Date: \tab 2017-05-10\cr
-License: \tab GPL 2\cr
-}
+After adding functions for finding roots and extrema without regression, current package constitutes the core of new filed , called 'Noisy Numerical Analysis', which combines Geometry, Calculus, Numerical Analysis and Statistics
+and treat noisy curves for solving known problems of Numerical Analysis.
 }
 \author{
 Demetris T. Christopoulos
@@ -28,7 +29,9 @@ Demetris T. Christopoulos
 Maintainer: Demetris T. Christopoulos <dchristop@econ.uoa.gr>
 }
 \references{
-Demetris T. Christopoulos (2014), Roots, extrema and inflection points by using a proper Taylor regression procedure, \emph{ResearchGate publications}, \url{https://www.researchgate.net/publication/261562841}
+Demetris T. Christopoulos (2014). Roots, extrema and inflection points by using a proper Taylor regression procedure. \emph{SSRN}. \url{https://dx.doi.org/10.2139/ssrn.2521403}
+
+Demetris T. Christopoulos (2019). New methods for computing extremes and roots of a planar curve: introducing Noisy Numerical Analysis (2019). \emph{ResearchGate}. \url{http://dx.doi.org/10.13140/RG.2.2.17158.32324}
 }
 \examples{
 #Load data:

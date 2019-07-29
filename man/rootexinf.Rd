@@ -65,7 +65,7 @@ It returns an environment with four components:
   \item{frexinf}{a 3 x 3 matrix: for each row (root, extreme, inflection) the position i and the value of the estimated root, extreme and inflection \eqn{\rho=x_{i}}{\rho=x_i}}
 }
 \references{
-Demetris T. Christopoulos (2014), Roots, extrema and inflection points by using a proper Taylor regression procedure, \emph{ResearchGate publications}s, \url{https://www.researchgate.net/publication/261562841}
+Demetris T. Christopoulos (2014). Roots, extrema and inflection points by using a proper Taylor regression procedure. \emph{SSRN}. \url{https://dx.doi.org/10.2139/ssrn.2521403}
 }
 \author{
 Demetris T. Christopoulos

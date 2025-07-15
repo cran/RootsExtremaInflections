@@ -1,7 +1,7 @@
 \name{findroot}
 \alias{findroot}
 \title{
-Find the root for a  planar curve byn using Integration Root Finding Estimator (IEFE) algorithm
+Find the root for a  planar curve by using Integration Root Finding Estimator (IEFE) algorithm
 }
 \description{
 Given a noisy or not planar curve as a set of discrete \eqn{\left\{(x_i,y_i),i=1,2,\ldots n\right\}}{{(x_i,y_i),i=1,2,...n}} points we use Integration Root Finding Estimator (IRFE) algorithm as it is described at [1] in ordfer to find the root of it.
@@ -31,20 +31,21 @@ The parallel=TRUE otpion must be used if length(x)>20000. The tryfast=TRUE can b
 }
 \value{ A named vector with next components is returned:
 \enumerate{
-  \item{x1 }{the left endpoint of the final interval of BESE or BEDE iterations }
-  \item{x2 }{the right endpoint of the final interval of BESE or BEDE iterations }
-  \item{chi }{the estimation of extreme as x-abscissa}
-  \item{chi }{the estimation of extreme as y-abscissa taken from the interpolation polynomial of 2nd degree for 
-  the data points (x1,y1), (x2,y2), (chi,ychi)}}
+  \item the left endpoint of the final interval of BESE or BEDE iterations 
+  \item x2 the right endpoint of the final interval of BESE or BEDE iterations 
+  \item chi the estimation of extreme as x-abscissa
+  \item chi the estimation of extreme as y-abscissa taken from the interpolation polynomial of 2nd degree for 
+  the data points (x1,y1), (x2,y2), (chi,ychi)
+}
 }
 \references{
-[1]Demetris T. Christopoulos (2019). New methods for computing extremes and roots of a planar curve: introducing Noisy Numerical Analysis (2019). \emph{ResearchGate}. \url{http://dx.doi.org/10.13140/RG.2.2.17158.32324}
+[1]Demetris T. Christopoulos (2019). New methods for computing extremes and roots of a planar curve: introducing Noisy Numerical Analysis (2019). \emph{ResearchGate}. \doi{10.13140/RG.2.2.17158.32324}
 }
 \author{
 Demetris T. Christopoulos
 }
 \note{
-The 'yvalue' at output vector is an interpolation approxiamtion for the y-value of unknown function at its extreme point 'chi' and does not mean that it will be certainly accurate. Thta is the truth if underlying function can be well approximated by low order polynomials.
+The 'yvalue' at output vector is an interpolation approximation for the y-value of unknown function at its extreme point 'chi' and does not mean that it will be certainly accurate. Thta is the truth if underlying function can be well approximated by low order polynomials.
 }
 \seealso{
 \code{\link{scan_curve}}, \code{\link{scan_noisy_curve}}

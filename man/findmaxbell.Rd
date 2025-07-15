@@ -26,13 +26,13 @@ If we want to compute minimum we just set concave=FALSE and proceed.
 \value{
 A named vector with next components is returned:
 \enumerate{
-  \item{j1 }{the index of x-left}
-  \item{j2 }{the index of x-right}
-  \item{chi }{the estimation of extreme as x-abscissa}
+  \item the index of x-left
+  \item j2 the index of x-right
+  \item chi the estimation of extreme as x-abscissa
 }
 }
 \references{
-[1]Demetris T. Christopoulos (2019). New methods for computing extremes and roots of a planar curve: introducing Noisy Numerical Analysis (2019). \emph{ResearchGate}. \url{http://dx.doi.org/10.13140/RG.2.2.17158.32324} \cr
+[1]Demetris T. Christopoulos (2019). New methods for computing extremes and roots of a planar curve: introducing Noisy Numerical Analysis (2019). \emph{ResearchGate}. \doi{10.13140/RG.2.2.17158.32324} 
 }
 \author{
 Demetris T. Christopoulos

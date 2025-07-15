@@ -18,25 +18,25 @@ A numeric vector for the dependent variable without missing values
 }
 }
 \details{
-A first check for the existence of infiniteies is performed. If infinities exist, then all outputs are set to 'NA', otherwise main code works.
+A first check for the existence of infinities is performed. If infinities exist, then all outputs are set to 'NA', otherwise main code works.
 }
 \value{
 A list with next members:
 \enumerate{
-  \item{ctype }{the convexity type of curve: convex, concave, convex/concave or concave/convex}
-  \item{index }{the relevant index for ESE or EDE usage: 0,1,0,1 respectively to 'ctype' previously presented values}
-  \item{asymmetry }{a classification of asymmetry type, if exists}
-  \item{totalconvexity }{the overall dominant convexity type of curve if we omit the fact probably has ranges of different types of convexity}
-  \item{ismax }{logical value, TRUE if a maximum seems to exits, FALSE if a minimum seems to be the case, 'NA' otherwise}
-  \item{shapetype }{the shape of extreme as tulip, bell or 'NA'}
+  \item ctype the convexity type of curve: convex, concave, convex/concave or concave/convex
+  \item index the relevant index for ESE or EDE usage: 0,1,0,1 respectively to 'ctype' previously presented values
+  \item asymmetry a classification of asymmetry type, if exists
+  \item totalconvexity the overall dominant convexity type of curve if we omit the fact probably has ranges of different types of convexity
+  \item ismax logical value, TRUE if a maximum seems to exits, FALSE if a minimum seems to be the case, 'NA' otherwise
+  \item shapetype the shape of extreme as tulip, bell or 'NA'
 }
 }
 \references{
-[1]Demetris T. Christopoulos (2019). New methods for computing extremes and roots of a planar curve: introducing Noisy Numerical Analysis (2019). \emph{ResearchGate}. \url{http://dx.doi.org/10.13140/RG.2.2.17158.32324} \cr
+[1]Demetris T. Christopoulos (2019). New methods for computing extremes and roots of a planar curve: introducing Noisy Numerical Analysis (2019). \emph{ResearchGate}. \doi{10.13140/RG.2.2.17158.32324} \cr
 
-[2]Demetris T. Christopoulos (2014). Developing methods for identifying the inflection point of a convex/concave curve. arXiv:1206.5478v2 [math.NA]. \url{https://arxiv.org/pdf/1206.5478v2.pdf} \cr
+[2]Demetris T. Christopoulos (2014). Developing methods for identifying the inflection point of a convex/concave curve. arXiv:1206.5478v2 [math.NA]. \doi{10.48550/arXiv.1206.5478} \cr
 
-[3]Demetris T. Christopoulos (2016). On the efficient identification of an inflection point.International Journal of Mathematics and Scientific Computing, (ISSN: 2231-5330), vol. 6(1). \url{https://veltech.edu.in/wp-content/uploads/2016/04/Paper-04-2016.pdf} 
+[3]Demetris T. Christopoulos (2016). On the efficient identification of an inflection point.International Journal of Mathematics and Scientific Computing, (ISSN: 2231-5330), vol. 6(1). \url{https://demovtu.veltech.edu.in/wp-content/uploads/2016/04/Paper-04-2016.pdf} 
 }
 \author{
 Demetris T. Christopoulos

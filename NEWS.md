@@ -1,3 +1,9 @@
+What’s new in version 1.2.5
+---------------------------
+
+### Corrections in rd files and DESCRIPTION according to new rules
+
+
 What’s new in version 1.2.1
 ---------------------------
 

@@ -27,18 +27,19 @@ Logical input, if TRUE then instead 'BEDE' will be used from IEFE algorithm inst
 }
 }
 \details{
-The parallel=TRUE otpion must be used if length(x)>20000. The tryfast=TRUE can be used for big data sets, but BEDE is not so accuracy as BESE, so use it with caution.
+The parallel=TRUE option must be used if length(x)>20000. The tryfast=TRUE can be used for big data sets, but BEDE is not so accuracy as BESE, so use it with caution.
 }
 \value{ A named vector with next components is returned:
 \enumerate{
-  \item{x1 }{the left endpoint of the final interval of BESE or BEDE iterations }
-  \item{x2 }{the right endpoint of the final interval of BESE or BEDE iterations }
-  \item{chi }{the estimation of extreme as x-abscissa}
-  \item{chi }{the estimation of extreme as y-abscissa taken from the interpolation polynomial of 2nd degree for 
-  the data points (x1,y1), (x2,y2), (chi,ychi)}}
+  \item x1 the left endpoint of the final interval of BESE or BEDE iterations 
+  \item x2 the right endpoint of the final interval of BESE or BEDE iterations
+  \item chi the estimation of extreme as x-abscissa
+  \item ychi the estimation of extreme as y-abscissa taken from the interpolation polynomial of 2nd degree for 
+  the data points (x1,y1), (x2,y2), (chi,ychi)
+}
 }
 \references{
-[1]Demetris T. Christopoulos (2019). New methods for computing extremes and roots of a planar curve: introducing Noisy Numerical Analysis (2019). \emph{ResearchGate}. \url{http://dx.doi.org/10.13140/RG.2.2.17158.32324} \cr
+[1]Demetris T. Christopoulos (2019). New methods for computing extremes and roots of a planar curve: introducing Noisy Numerical Analysis (2019). \emph{ResearchGate}. \doi{10.13140/RG.2.2.17158.32324} \cr
 }
 \author{
 Demetris T. Christopoulos

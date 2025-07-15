@@ -29,9 +29,9 @@ Demetris T. Christopoulos
 Maintainer: Demetris T. Christopoulos <dchristop@econ.uoa.gr>
 }
 \references{
-Demetris T. Christopoulos (2014). Roots, extrema and inflection points by using a proper Taylor regression procedure. \emph{SSRN}. \url{https://dx.doi.org/10.2139/ssrn.2521403}
+Demetris T. Christopoulos (2014). Roots, extrema and inflection points by using a proper Taylor regression procedure. \emph{SSRN}. \doi{10.2139/ssrn.3043076}
 
-Demetris T. Christopoulos (2019). New methods for computing extremes and roots of a planar curve: introducing Noisy Numerical Analysis (2019). \emph{ResearchGate}. \url{http://dx.doi.org/10.13140/RG.2.2.17158.32324}
+Demetris T. Christopoulos (2019). New methods for computing extremes and roots of a planar curve: introducing Noisy Numerical Analysis (2019). \emph{ResearchGate}. \doi{10.13140/RG.2.2.17158.32324}
 }
 \examples{
 #Load data:

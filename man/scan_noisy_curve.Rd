@@ -39,62 +39,57 @@ Logical input, if TRUE then a plot with all roots, extrema and inflctions will b
 \details{
 The function first uses \code{\link{scan_curve}} in norder to perform a first study. Then it uses an extesnsive if-else environment in order to cover all possible cases without error breaks.
 }
-\value{A list with next memebers is returned:
+\value{A list with next members is returned:
 \enumerate{
- \item{study }{a data frame with all intervals that curve can be divided and next columns:
+ \item study a data frame with all intervals that curve can be divided and next columns:
     \itemize{
-      \item{j }{the index of x vector for the left endpoint of current interval}
-      \item{dj }{the number of x points of current interval}
-      \item{interval }{logical, if TRUE then it is a unique convexity interval}
-      \item{i1 }{the index of x vector for the left endpoint of current interval}
-      \item{i2 }{the index of x vector for the right endpoint of current interval}
-      \item{interval }{logical, if TRUE then a root exists inside current interval}
-    }
-  }
-  \item{roots_average }{a data frame with all averaged roots and next columns:
+      \item j the index of x vector for the left endpoint of current interval
+      \item dj the number of x points of current interval
+      \item interval logical, if TRUE then it is a unique convexity interval
+      \item i1 the index of x vector for the left endpoint of current interval
+      \item i2 the index of x vector for the right endpoint of current interval
+      \item interval logical, if TRUE then a root exists inside current interval
+    }  
+  \item roots_average a data frame with all averaged roots and next columns:
     \itemize{
-      \item{x1 }{the left endpoint of the averaged interval }
-      \item{x2 }{the right endpoint of the averaged interval }
-      \item{chi }{the estimation of root as x-abscissa}
-      \item{chi }{the estimation of root as y-abscissa taken from the interpolation polynomial of 2nd degree for 
-      a properly collected triad of (x[i],y[i]) points}
-    }
-  }
-  \item{roots_optim }{a data frame with all roots from IRFE and next columns:
+      \item x1 the left endpoint of the averaged interval 
+      \item x2 the right endpoint of the averaged interval
+      \item chi the estimation of root as x-abscissa
+      \item chi the estimation of root as y-abscissa taken from the interpolation polynomial of 2nd degree for 
+      a properly collected triad of (x[i],y[i]) points
+	} 
+   \item roots_optim a data frame with all roots from IRFE and next columns:
     \itemize{
-      \item{x1 }{the left endpoint of the final interval of BESE iterations }
-      \item{x2 }{the right endpoint of the final interval of BESE iterations }
-      \item{chi }{the estimation of root as x-abscissa}
-      \item{chi }{the estimation of root as y-abscissa taken from the interpolation polynomial of 2nd degree for 
-      the data points (x1,y1), (x2,y2), (chi,ychi)}
-    }
-  }
-   \item{extremes }{a data frame with all extremes between roots and next columns:
+      \item x1 the left endpoint of the final interval of BESE iterations
+      \item x2 the right endpoint of the final interval of BESE iterations
+      \item chi the estimation of root as x-abscissa
+      \item chi the estimation of root as y-abscissa taken from the interpolation polynomial of 2nd degree for 
+      the data points (x1,y1), (x2,y2), (chi,ychi)
+    }  
+   \item extremes a data frame with all extremes between roots and next columns:
     \itemize{
-      \item{x1 }{the left endpoint of the final interval of BESE iterations }
-      \item{x2 }{the right endpoint of the final interval of BESE iterations }
-      \item{chi }{the estimation of extreme as x-abscissa}
-      \item{chi }{the estimation of extreme as y-abscissa taken from the interpolation polynomial of 2nd degree for 
-      the data points (x1,y1), (x2,y2), (chi,ychi)}
+      \item x1 the left endpoint of the final interval of BESE iterations
+      \item x2 the right endpoint of the final interval of BESE iterations
+      \item chi the estimation of extreme as x-abscissa
+      \item chi the estimation of extreme as y-abscissa taken from the interpolation polynomial of 2nd degree for 
+      the data points (x1,y1), (x2,y2), (chi,ychi)
+      }    
+  \item inflections a data frame with all inflections between roots and next columns:
+    \itemize{
+      \item x1 the left endpoint of the final interval of BESE iterations
+      \item x2 the right endpoint of the final interval of BESE iterations 
+      \item chi the estimation of inflection as x-abscissa
+      \item chi the estimation of inflection as y-abscissa taken from the interpolation polynomial of 2nd degree for 
+      the data points (x1,y1), (x2,y2), (chi,ychi)
       }
-    }
-  \item{inflections }{a data frame with all inflections between roots and next columns:
-    \itemize{
-      \item{x1 }{the left endpoint of the final interval of BESE iterations }
-      \item{x2 }{the right endpoint of the final interval of BESE iterations }
-      \item{chi }{the estimation of inflection as x-abscissa}
-      \item{chi }{the estimation of inflection as y-abscissa taken from the interpolation polynomial of 2nd degree for 
-      the data points (x1,y1), (x2,y2), (chi,ychi)}
-      }
-    }
-    }
+    }    
 }
 \references{
-[1]Demetris T. Christopoulos (2019). New methods for computing extremes and roots of a planar curve: introducing Noisy Numerical Analysis (2019). \emph{ResearchGate}. \url{http://dx.doi.org/10.13140/RG.2.2.17158.32324} \cr
+[1]Demetris T. Christopoulos (2019). New methods for computing extremes and roots of a planar curve: introducing Noisy Numerical Analysis (2019). \emph{ResearchGate}. \doi{10.13140/RG.2.2.17158.32324} \cr
 
-[2]Demetris T. Christopoulos (2014). Developing methods for identifying the inflection point of a convex/concave curve. arXiv:1206.5478v2 [math.NA]. \url{https://arxiv.org/pdf/1206.5478v2.pdf} \cr
+[2]Demetris T. Christopoulos (2014). Developing methods for identifying the inflection point of a convex/concave curve. arXiv:1206.5478v2 [math.NA]. \doi{10.48550/arXiv.1206.5478} \cr
 
-[3]Demetris T. Christopoulos (2016). On the efficient identification of an inflection point.International Journal of Mathematics and Scientific Computing, (ISSN: 2231-5330), vol. 6(1). \url{https://veltech.edu.in/wp-content/uploads/2016/04/Paper-04-2016.pdf} 
+[3]Demetris T. Christopoulos (2016). On the efficient identification of an inflection point.International Journal of Mathematics and Scientific Computing, (ISSN: 2231-5330), vol. 6(1). \url{https://demovtu.veltech.edu.in/wp-content/uploads/2016/04/Paper-04-2016.pdf} 
 }
 \author{
 Demetris T. Christopoulos

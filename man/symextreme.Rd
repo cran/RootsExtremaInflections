@@ -29,19 +29,18 @@ This function is useful if we know that our curve has a symmetry around its extr
 }
 \value{A list with next memebers is returned:
 \enumerate{
- \item{maximum }{logical, if TRUE then curve has a maximum}
- \item{minimum }{logical, if TRUE then curve has a minimum}
- \item{results }{a named vector with components:
+ \item maximum logical, if TRUE then curve has a maximum
+ \item minimum logical, if TRUE then curve has a minimum
+ \item results a named vector with components:
    \itemize{
-      \item{j1 }{the index of x-left}
-      \item{j2 }{the index of x-right}
-      \item{chi }{the estimation of extreme as x-abscissa}
-      }
-      }
+      \item j1 the index of x-left
+      \item j2 the index of x-right
+      \item chi the estimation of extreme as x-abscissa     
+}
 }
 }
 \references{
-[1]Demetris T. Christopoulos (2019). New methods for computing extremes and roots of a planar curve: introducing Noisy Numerical Analysis (2019). \emph{ResearchGate}. \url{http://dx.doi.org/10.13140/RG.2.2.17158.32324} \cr
+[1]Demetris T. Christopoulos (2019). New methods for computing extremes and roots of a planar curve: introducing Noisy Numerical Analysis (2019). \emph{ResearchGate}. \doi{10.13140/RG.2.2.17158.32324} \cr
 }
 \author{
 Demetris T. Christopoulos
